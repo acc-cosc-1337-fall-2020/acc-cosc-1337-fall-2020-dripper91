@@ -8,7 +8,7 @@ int main()
 {
 	int num;
 
-	std::cout << "Enter a number to be multiplied: "
+	std::cout << "Enter a number to be multiplied: ";
 
 	std::cin >> num;
 
