@@ -8,11 +8,13 @@ int main()
 {
 	int num;
 
+	std::cout << "Enter a number to be multiplied: "
+
 	std::cin >> num;
 
 	int result = multiply_numbers(num);
 
-	std::cout << "The multiplied product is " << result;
+	std::cout << "\nThe multiplied product is " << result;
 
 	int num1 = 4;
 
