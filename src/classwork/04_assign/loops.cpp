@@ -13,7 +13,6 @@ int factorial(int num)
         for(int i = num; i > 0; i--)
         {
             sum *= num;
-
             num--;
         }
         return sum;
@@ -27,7 +26,6 @@ int factorial(int num)
         for(int i = num; i < 0; i++)
         {
             sum *= num;
-
             num++;
         }
         return sum;
