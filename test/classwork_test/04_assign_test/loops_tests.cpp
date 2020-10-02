@@ -6,3 +6,8 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("Veryify num 3 returns 6")
+{
+	REQUIRE(factorial(3)==6);
+}
+

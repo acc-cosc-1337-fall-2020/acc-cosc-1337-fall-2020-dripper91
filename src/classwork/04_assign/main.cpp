@@ -1,5 +1,6 @@
 //write includes statements
-
+#include <loops.h>
+#include <iostream>
 //write using statements for cin and cout
 
 
