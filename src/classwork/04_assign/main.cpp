@@ -22,7 +22,7 @@ int main()
 			std::cin >> num;
 		} while (num < 1 || num > 10);
 	
-		std::cout << "/nThe factorial of " << num << " is " << factorial(num);
+		std::cout << "The factorial of " << num << " is " << factorial(num);
 		std::cout << std::endl;
 
 		do
