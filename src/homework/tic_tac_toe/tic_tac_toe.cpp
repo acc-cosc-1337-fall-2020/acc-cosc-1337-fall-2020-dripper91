@@ -1,7 +1,6 @@
 //cpp
 #include "tic_tac_toe.h"
 #include <iostream>
-#include <cctype>
 
 
 void TicTacToe::start_game(std::string first_player)
