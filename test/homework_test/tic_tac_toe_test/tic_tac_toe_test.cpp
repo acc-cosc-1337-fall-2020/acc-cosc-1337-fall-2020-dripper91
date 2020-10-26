@@ -12,8 +12,12 @@ TEST_CASE("Test mark_board / check_board_full / game_over functions")
 
 	test.start_game("X");
 
-	for(int i=1; i < 10; i++)
+	for(int i=1; i < 9; i++)
+	{
 		test.mark_board(i);
+		REQUIRE(test.game_over() == false);
+	}
 
+	test.mark_board(9);
 	REQUIRE(test.game_over());
 }
