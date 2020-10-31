@@ -3,37 +3,51 @@
 
 int main() 
 {
-	TicTacToe game;
-	std::string player;
-	int position;
+	char run = 'Y';
 
-	do
+	while(run =='Y' || run == 'y')
 	{
-		std::cout << "Enter the character for player one (X/O): ";
-		std::cin >> player;
-	} while (player != "X" && player != "x" && player != "O" && player != "o");
+		TicTacToe game;
+		std::string player;
+		int position;
 
-	if(player=="x")
-		player = "X";
-	else if(player =="o")
-		player = "O";
-
-	game.start_game(player);
-
-	while(!game.game_over())
-	{
 		do
 		{
-			std::cout << "Enter the space to mark: ";
-			std::cin >> position;
-		} while (position < 1 || position > 9);
-	
-		game.mark_board(position);
+			std::cout << "Enter the character for player one (X/O): ";
+			std::cin >> player;
+		} while (player != "X" && player != "x" && player != "O" && player != "o");
 
-		game.display_board();
+		if(player=="x")
+			player = "X";
+		else if(player =="o")
+			player = "O";
+
+		game.start_game(player);
+
+		while(!game.game_over())
+		{
+			do
+			{
+				std::cout << "Enter the space to mark: ";
+				std::cin >> position;
+			} while (position < 1 || position > 9);
+		
+			game.mark_board(position);
+
+			game.display_board();
+		}
+
+		if(game.get_winner() != "C")
+			std::cout << "Player " << game.get_winner() << " wins the game!\n\n";
+		else
+			std::cout << "Game ended in a tie.\n\n";
+
+		do
+		{
+			std::cout << "Play again? (y/n): ";
+			std::cin >> run;
+		} while (run != 'Y' && run != 'y' && run != 'N' && run != 'n');
 	}
-
-	std::cout << "Game Over";
 	
 	return 0;
 }
