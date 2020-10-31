@@ -32,13 +32,13 @@ void TicTacToe::display_board() const
 
 bool TicTacToe::check_board_full()
 {
-    bool full = false;
+    bool isFull = false;
 
     if(pegs[0] != " " && pegs[1] != " " && pegs[2] != " " && pegs[3] != " " && pegs[4] != " "
         && pegs[5] != " " && pegs[6] != " " && pegs[7] != " " && pegs[8] != " ")
-        full = true;
+        isFull = true;
     
-    return full;
+    return isFull;
 }
 
 void TicTacToe::clear_board()
