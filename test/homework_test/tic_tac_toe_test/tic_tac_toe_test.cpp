@@ -62,9 +62,13 @@ TEST_CASE("Test win by first column")
 	test.start_game("X");
 
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(4);
+	REQUIRE(!test.game_over());
 	test.mark_board(3);
+	REQUIRE(!test.game_over());
 	test.mark_board(7);
 
 	REQUIRE(test.game_over());
@@ -77,9 +81,13 @@ TEST_CASE("Test win by second column")
 	test.start_game("X");
 
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(5);
+	REQUIRE(!test.game_over());
 	test.mark_board(3);
+	REQUIRE(!test.game_over());
 	test.mark_board(8);
 
 	REQUIRE(test.game_over());
@@ -92,9 +100,13 @@ TEST_CASE("Test win by third column")
 	test.start_game("X");
 
 	test.mark_board(3);
+	REQUIRE(!test.game_over());
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(6);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(9);
 
 	REQUIRE(test.game_over());
@@ -107,9 +119,13 @@ TEST_CASE("Test win by first row")
 	test.start_game("X");
 
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(4);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(5);
+	REQUIRE(!test.game_over());
 	test.mark_board(3);
 
 	REQUIRE(test.game_over());
@@ -122,9 +138,13 @@ TEST_CASE("Test win by second row")
 	test.start_game("X");
 
 	test.mark_board(4);
+	REQUIRE(!test.game_over());
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(5);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(6);
 
 	REQUIRE(test.game_over());
@@ -137,9 +157,13 @@ TEST_CASE("Test win by third row")
 	test.start_game("X");
 
 	test.mark_board(7);
+	REQUIRE(!test.game_over());
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(8);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(9);
 
 	REQUIRE(test.game_over());
@@ -152,9 +176,13 @@ TEST_CASE("Test win diagonally from top left")
 	test.start_game("X");
 
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(5);
+	REQUIRE(!test.game_over());
 	test.mark_board(3);
+	REQUIRE(!test.game_over());
 	test.mark_board(9);
 
 	REQUIRE(test.game_over());
@@ -167,9 +195,13 @@ TEST_CASE("Test win diagonally from bottom left")
 	test.start_game("X");
 
 	test.mark_board(7);
+	REQUIRE(!test.game_over());
 	test.mark_board(1);
+	REQUIRE(!test.game_over());
 	test.mark_board(5);
+	REQUIRE(!test.game_over());
 	test.mark_board(2);
+	REQUIRE(!test.game_over());
 	test.mark_board(3);
 
 	REQUIRE(test.game_over());
