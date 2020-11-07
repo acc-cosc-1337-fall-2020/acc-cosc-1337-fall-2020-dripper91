@@ -9,7 +9,6 @@ int main()
 	{
 		TicTacToe game;
 		std::string player;
-		int position;
 
 		do
 		{
@@ -26,15 +25,8 @@ int main()
 
 		while(!game.game_over())
 		{
-			do
-			{
-				std::cout << "Enter the space to mark: ";
-				std::cin >> position;
-			} while (position < 1 || position > 9);
-		
-			game.mark_board(position);
-
-			game.display_board();
+			std::cin >> game;
+			std::cout << game;
 		}
 
 		if(game.get_winner() != "C")

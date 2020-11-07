@@ -13,7 +13,8 @@ class TicTacToe
         void mark_board(int position);
         std::string get_player() const;
         std::string get_winner();
-        void display_board() const;
+        friend void operator >>(std::istream &input, TicTacToe &game);
+        friend void operator <<(std::ostream &output, TicTacToe &game);
     private:
         std::string player;
         std::string winner;

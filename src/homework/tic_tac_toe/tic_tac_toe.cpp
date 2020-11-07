@@ -46,13 +46,6 @@ std::string TicTacToe::get_winner()
     return winner;
 }
 
-void TicTacToe::display_board() const
-{
-    std::cout << pegs[0] << "|" << pegs[1] << "|" << pegs[2] << std::endl;
-    std::cout << pegs[3] << "|" << pegs[4] << "|" << pegs[5] << std::endl;
-    std::cout << pegs[6] << "|" << pegs[7] << "|" << pegs[8] << std::endl;
-}
-
 bool TicTacToe::check_column_win()
 {
     if(pegs[0] == pegs[3] && pegs[3] == pegs[6] && pegs[6] != " ")
@@ -113,4 +106,24 @@ bool TicTacToe::game_over()
        }
     else
         return false;
+}
+
+void operator >>(std::istream &input, TicTacToe &game)
+{
+    int position;
+
+    do
+			{
+				std::cout << "Enter the space to mark: ";
+				input >> position;
+			} while (position < 1 || position > 9);
+		
+			game.mark_board(position);
+}
+
+void operator <<(std::ostream &output, TicTacToe &game)
+{
+    output << game.pegs[0] << "|" << game.pegs[1] << "|" << game.pegs[2] << std::endl;
+    output << game.pegs[3] << "|" << game.pegs[4] << "|" << game.pegs[5] << std::endl;
+    output << game.pegs[6] << "|" << game.pegs[7] << "|" << game.pegs[8] << std::endl;
 }
