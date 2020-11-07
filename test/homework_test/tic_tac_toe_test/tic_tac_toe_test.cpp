@@ -72,6 +72,8 @@ TEST_CASE("Test win by first column")
 	test.mark_board(7);
 
 	REQUIRE(test.game_over());
+
+	REQUIRE(test.get_winner()=="X");
 }
 
 TEST_CASE("Test win by second column")
@@ -91,6 +93,8 @@ TEST_CASE("Test win by second column")
 	test.mark_board(8);
 
 	REQUIRE(test.game_over());
+
+	REQUIRE(test.get_winner()=="X");
 }
 
 TEST_CASE("Test win by third column")
@@ -110,6 +114,8 @@ TEST_CASE("Test win by third column")
 	test.mark_board(9);
 
 	REQUIRE(test.game_over());
+
+	REQUIRE(test.get_winner()=="X");
 }
 
 TEST_CASE("Test win by first row")
@@ -129,6 +135,8 @@ TEST_CASE("Test win by first row")
 	test.mark_board(3);
 
 	REQUIRE(test.game_over());
+
+	REQUIRE(test.get_winner()=="X");
 }
 
 TEST_CASE("Test win by second row")
@@ -148,6 +156,8 @@ TEST_CASE("Test win by second row")
 	test.mark_board(6);
 
 	REQUIRE(test.game_over());
+
+	REQUIRE(test.get_winner()=="X");
 }
 
 TEST_CASE("Test win by third row")
@@ -167,6 +177,8 @@ TEST_CASE("Test win by third row")
 	test.mark_board(9);
 
 	REQUIRE(test.game_over());
+
+	REQUIRE(test.get_winner()=="X");
 }
 
 TEST_CASE("Test win diagonally from top left")

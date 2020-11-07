@@ -1,9 +1,11 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include <iostream>
 
 int main() 
 {
 	char run = 'Y';
+	TicTacToeManager game_mgr;
 
 	while(run =='Y' || run == 'y')
 	{
@@ -29,10 +31,14 @@ int main()
 			std::cout << game;
 		}
 
+		game_mgr.save_game(game);
+
 		if(game.get_winner() != "C")
 			std::cout << "Player " << game.get_winner() << " wins the game!\n\n";
 		else
 			std::cout << "Game ended in a tie.\n\n";
+
+		game_mgr.get_winner_total();
 
 		do
 		{
@@ -40,6 +46,8 @@ int main()
 			std::cin >> run;
 		} while (run != 'Y' && run != 'y' && run != 'N' && run != 'n');
 	}
+
+	std::cout << game_mgr;
 	
 	return 0;
 }
