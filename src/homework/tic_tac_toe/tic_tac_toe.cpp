@@ -113,12 +113,12 @@ void operator >>(std::istream &input, TicTacToe &game)
     int position;
 
     do
-			{
-				std::cout << "Enter the space to mark: ";
-				input >> position;
-			} while (position < 1 || position > 9);
+	{
+		std::cout << "Enter the space to mark: ";
+		input >> position;
+	} while (position < 1 || position > 9);
 		
-			game.mark_board(position);
+	game.mark_board(position);
 }
 
 void operator <<(std::ostream &output, TicTacToe &game)
