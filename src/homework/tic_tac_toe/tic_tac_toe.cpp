@@ -2,7 +2,6 @@
 #include "tic_tac_toe.h"
 #include <iostream>
 
-
 void TicTacToe::start_game(std::string first_player)
 {   
     player = first_player;
@@ -48,46 +47,29 @@ std::string TicTacToe::get_winner()
 
 bool TicTacToe::check_column_win()
 {
-    if(pegs[0] == pegs[3] && pegs[3] == pegs[6] && pegs[6] != " ")
-        return true;
-    else if(pegs[1] == pegs[4] && pegs[4] == pegs[7] && pegs[7] != " ")
-        return true;
-    else if(pegs[2] == pegs[5] && pegs [5] == pegs[8] && pegs[8] != " ")
-        return true;
-    else
-        return false;
+    return false;
 }
 
 bool TicTacToe::check_row_win()
 {
-    if(pegs[0] == pegs[1] && pegs[1] == pegs[2] && pegs[2] != " ")
-        return true;
-    else if(pegs[3] == pegs[4] && pegs[4] == pegs[5] && pegs[5] != " ")
-        return true;
-    else if(pegs[6] == pegs[7] && pegs[7] == pegs[8] && pegs[8] != " ")
-        return true;
-    else
-        return false;
+    return false;
 }
 
 bool TicTacToe::check_diagonal_win()
 {
-    if(pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[8] != " ")
-        return true;
-    else if(pegs[6] == pegs[4] && pegs[4] == pegs[2] && pegs[2] != " ")
-        return true;
-    else
-        return false;
+    return false;
 }
 
 bool TicTacToe::check_board_full()
 {
-    bool isFull = false;
+    bool isFull = true;
 
-    if(pegs[0] != " " && pegs[1] != " " && pegs[2] != " " && pegs[3] != " " && pegs[4] != " "
-        && pegs[5] != " " && pegs[6] != " " && pegs[7] != " " && pegs[8] != " ")
-        isFull = true;
-    
+    for (auto x : pegs)
+    {
+        if(x == " ")
+            isFull = false;
+    }
+
     return isFull;
 }
 
@@ -108,22 +90,42 @@ bool TicTacToe::game_over()
         return false;
 }
 
-void operator >>(std::istream &input, TicTacToe &game)
+void operator >>(std::istream &input, std::unique_ptr<TicTacToe> &game)
 {
     int position;
 
-    do
-	{
-		std::cout << "Enter the space to mark: ";
-		input >> position;
-	} while (position < 1 || position > 9);
-		
-	game.mark_board(position);
+    if(game->pegs.size()==9)
+    {
+        do
+	    {
+		    std::cout << "Enter the space to mark: ";
+		    input >> position;
+	    } while (position < 1 || position > 9);
+    }
+    if(game->pegs.size()==16)
+    {
+        do
+	    {
+		    std::cout << "Enter the space to mark: ";
+		    input >> position;
+	    } while (position < 1 || position > 16);
+    }
+	game->mark_board(position);
 }
 
-void operator <<(std::ostream &output, TicTacToe &game)
+void operator <<(std::ostream &output, std::unique_ptr<TicTacToe> &game)
 {
-    output << game.pegs[0] << "|" << game.pegs[1] << "|" << game.pegs[2] << std::endl;
-    output << game.pegs[3] << "|" << game.pegs[4] << "|" << game.pegs[5] << std::endl;
-    output << game.pegs[6] << "|" << game.pegs[7] << "|" << game.pegs[8] << std::endl;
+    if(game->pegs.size()==9)
+    {
+        output << game->pegs[0] << "|" << game->pegs[1] << "|" << game->pegs[2] << std::endl;
+        output << game->pegs[3] << "|" << game->pegs[4] << "|" << game->pegs[5] << std::endl;
+        output << game->pegs[6] << "|" << game->pegs[7] << "|" << game->pegs[8] << std::endl;
+    }
+    else if(game->pegs.size()==16)
+    {
+        output << game->pegs[0] << "|" << game->pegs[1] << "|" << game->pegs[2] << "|" << game->pegs[3] << std::endl;
+        output << game->pegs[4] << "|" << game->pegs[5] << "|" << game->pegs[6] << "|" << game->pegs[7] << std::endl;
+        output << game->pegs[8] << "|" << game->pegs[9] << "|" << game->pegs[10] << "|" << game->pegs[11] << std::endl;
+        output << game->pegs[12] << "|" << game->pegs[13] << "|" << game->pegs[14] << "|" << game->pegs[15] << std::endl;
+    }
 }

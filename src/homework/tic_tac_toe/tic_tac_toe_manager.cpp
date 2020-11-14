@@ -2,25 +2,21 @@
 #include "tic_tac_toe_manager.h"
 #include <iostream>
 
-void TicTacToeManager::save_game(TicTacToe b)
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe> &b)
 {
-    games.push_back(b);
-    update_winner_count(b.get_winner());
+    update_winner_count(b->get_winner());
+    games.push_back(std::move(b));
 }
 
-void operator <<(std::ostream& out, const TicTacToeManager& manager)
+void operator <<(std::ostream& out, TicTacToeManager& manager)
 {
-    for (TicTacToe game : manager.games)
+    for (std::unique_ptr<TicTacToe> &game : manager.games)
     {
         out << game;
         out << std::endl;
     }
 }
 
-//I didn't understand what the purpose of the get_winner_total function
-//was. I assume it is to print the win values at the end of each game
-//since there is no other function that does that. I left the parameters
-//out since I didn't need them for this.
 void TicTacToeManager::get_winner_total()
 {
         std::cout << "X Wins: " << x_win << "  ///  ";
