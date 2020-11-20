@@ -2,13 +2,13 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include "tic_tac_toe_manager.h"
-#include <iostream>
-#include <memory>
+#include "tic_tac_toe_data.h"
 
 int main() 
 {
 	char run = 'Y';
-	TicTacToeManager game_mgr;
+	TicTacToeData data;
+	TicTacToeManager game_mgr(data);
 
 	while(run =='Y' || run == 'y')
 	{
