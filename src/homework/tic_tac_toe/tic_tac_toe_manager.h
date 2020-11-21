@@ -15,7 +15,7 @@ class TicTacToeManager
         void save_game(std::unique_ptr<TicTacToe> &b);
         friend void operator <<(std::ostream& out, TicTacToeManager& manager);
         void get_winner_total();
-        ~TicTacToeManager() { data.save_games(games);}
+        ~TicTacToeManager() { data.save_games(games); }
     private:
         std::vector<std::unique_ptr<TicTacToe>> games;
         int x_win = 0;
