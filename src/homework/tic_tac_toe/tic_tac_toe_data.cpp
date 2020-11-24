@@ -51,5 +51,7 @@ std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
         games.push_back(std::move(game));
     }
 
+    inFile.close();
+
     return games;
 }
